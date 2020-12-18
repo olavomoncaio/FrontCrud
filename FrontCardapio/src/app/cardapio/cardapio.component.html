@@ -1,0 +1,69 @@
+<div class="col-md-12 txtBox">
+    <div class="row" *ngIf="!criarNovo">
+        <div class="col-md-12" style="padding: 2%">
+            <button (click)="exibirCriacao()">Criar</button>
+        </div>
+    </div>
+    <div class="row" *ngIf="criarNovo" style="padding: 2%">
+        <div class="form-group col-md-3">
+            <label for="Nome">Nome<small class="text-danger">*</small></label>
+            <input class="form-control input-sm text-input campo-inteiro" id="Nome" name="Nome" type="text"
+                [(ngModel)]="novoItem.nome">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="Ingredientes">Ingredientes<small class="text-danger">*</small></label>
+            <input class="form-control input-sm text-input campo-inteiro" id="Ingredientes" name="Ingredientes"
+                type="text" [(ngModel)]="novoItem.ingredientes">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="Valor">Valor<small class="text-danger">*</small></label>
+            <input class="form-control input-sm text-input campo-inteiro" id="Valor" name="Valor" type="text"
+                [(ngModel)]="novoItem.valor">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="Disponivel">Disponivel<small class="text-danger">*</small></label>
+            <select id="disponivel" name="disponivel" class="form-control input-sm text-input"
+                [(ngModel)]="novoItem.disponivel">
+                <option [ngValue]="true">Sim</option>
+                <option [ngValue]="false">Não</option>
+            </select>
+        </div>
+        <div class="row">
+            <button (click)="salvar()">Salvar</button>
+            <button (click)="cancelarCriacao()">Cancelar</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table id="tabelaResultado" class="table">
+            <thead>
+                <tr>
+                    <th>*</th>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Ingredientes</th>
+                    <th>Valor</th>
+                    <th>Disponível</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="cardapioModel">
+                <tr *ngFor="let item of cardapioModel">
+                    <td></td>
+                    <td>{{item.cardapioId}}</td>
+                    <td>{{item.nome}}</td>
+                    <td>{{item.ingredientes}}</td>
+                    <td>{{item.valor}}</td>
+                    <td>{{item.disponivel ? 'Sim' : 'Não'}}</td>
+                    <td>
+                        <span class="material-icons" title="Editar" (click)="editar(item.cardapioId)">edit</span>
+                        <span class="material-icons" title="Excluir" (click)="excluir(item.cardapioId)">delete</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

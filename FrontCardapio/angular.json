@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "FrontCardapio"
+    }
+  },
+  "defaultProject": "FrontCardapio",
+  "cli": {
+    "analytics": false
+  }
 }

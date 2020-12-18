@@ -1,0 +1,31 @@
+<div class="row" style="padding: 2%">
+    <div class="form-group col-md-3">
+        <label for="Nome">Nome<small class="text-danger">*</small></label>
+        <input class="form-control input-sm text-input campo-inteiro" id="Nome" name="Nome" type="text"
+            [(ngModel)]="model.nome">
+    </div>
+    <div class="form-group col-md-3">
+        <label for="Ingredientes">Ingredientes<small class="text-danger">*</small></label>
+        <input class="form-control input-sm text-input campo-inteiro" id="Ingredientes" name="Ingredientes" type="text"
+            [(ngModel)]="model.ingredientes">
+    </div>
+    <div class="form-group col-md-3">
+        <label for="Valor">Valor<small class="text-danger">*</small></label>
+        <input class="form-control input-sm text-input campo-inteiro" id="Valor" name="Valor" type="text"
+            [(ngModel)]="model.valor">
+    </div>
+    <div class="form-group col-md-3">
+        <label for="Disponivel">Disponivel<small class="text-danger">*</small></label>
+        <select id="disponivel" name="disponivel" class="form-control input-sm text-input"
+            [(ngModel)]="model.disponivel">
+            <option [ngValue]="true">Sim</option>
+            <option [ngValue]="false">Não</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-md-3">
+        <button (click)="aoSalvar()">Salvar</button>
+        <button (click)="aoCancelar()">Cancelar</button>
+    </div>
+</div>
